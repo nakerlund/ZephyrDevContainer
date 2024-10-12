@@ -1,0 +1,67 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build LwM2M Sample",
+            "type": "shell",
+            "command": "west build -b qemu_x86 /west/zephyr/samples/net/lwm2m_client -DCONF_FILE=\"prj.conf\"",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "panel": "new",
+                "reveal": "always",
+                "echo": true,
+                "focus": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Start loop-socat",
+            "type": "shell",
+            "command": "cd /west/tools/net-tools && . ./loop-socat.sh",
+            "isBackground": true,
+            "problemMatcher": [],
+            "options": {
+                "cwd": "/west/tools/net-tools"
+            },
+            "presentation": {
+                "panel": "new",
+                "reveal": "always",
+                "echo": true,
+                "focus": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Start loop-slip-tap",
+            "type": "shell",
+            "command": "sudo ./loop-slip-tap.sh",
+            "isBackground": true,
+            "problemMatcher": [],
+            "options": {
+                "cwd": "/west/tools/net-tools"
+            },
+            "presentation": {
+                "panel": "new",
+                "reveal": "always",
+                "echo": true,
+                "focus": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Run QEMU",
+            "type": "shell",
+            "command": "west build -t run",
+            "presentation": {
+                "panel": "new",
+                "reveal": "always",
+                "echo": true,
+                "focus": true,
+                "clear": false
+            }
+        }
+    ]
+}

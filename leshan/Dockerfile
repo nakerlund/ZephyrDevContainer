@@ -1,0 +1,12 @@
+# use ubuntu as base image
+FROM ubuntu:22.04
+
+# Install wget and java jre
+RUN apt-get update && apt-get install -y wget default-jre && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+# Download leshan demo server
+RUN wget https://ci.eclipse.org/leshan/job/leshan-ci/job/master/lastSuccessfulBuild/artifact/leshan-demo-server.jar
+
+# Run the leshan demo server
+CMD java -jar leshan-demo-server.jar
