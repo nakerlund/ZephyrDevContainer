@@ -41,7 +41,7 @@ cd /west/tools/net-tools
 
 ```bash
 cd /west/tools/net-tools
-sudo loop-slip-tap.sh
+sudo bash loop-slip-tap.sh
 ```
 
 ### 3. Run qemu with the build
