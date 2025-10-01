@@ -1,20 +1,20 @@
 services:
-  devcontainer:
+  zephyr:
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile.Zephyr
     privileged: true
     devices:
       - /dev/net/tun
     volumes:
-      - ../..:/workspaces:cached
+      - ./..:/workspaces:cached
     network_mode: service:leshan
     command: sleep infinity
 
   leshan:
     build:
-      context: ../leshan
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: ./Dockerfile.Leshan
     restart: unless-stopped
     ports:
       - "8080:8080"

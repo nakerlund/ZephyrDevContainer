@@ -2,6 +2,10 @@
 
 This project is setup to do everything needed to run the [Zephyr LwM2M Sample](https://docs.zephyrproject.org/latest/samples/net/lwm2m_client/README.html) in QEMU with the [Leshan Demo Server](https://github.com/eclipse-leshan/leshan?tab=readme-ov-file#test-leshan-demos-locally)
 
+> **Apple Silicon note:** Replace `qemu_x86` with `qemu_cortex_m3` to build but unfortunately, the network will not work.
+
+The instructions below remain valid for Linux hosts with x86_64 CPUs.
+
 ## Prerequisites
 
 1. Install VS Code
@@ -28,7 +32,7 @@ west build -b qemu_x86 /west/zephyr/samples/net/lwm2m_client -DCONF_FILE="prj.co
 
 ### 2. Setup network for qemu
 
-Start the net-tools according to the [guide](https://docs.zephyrproject.org/1.13.0/subsystems/networking/qemu_setup.html#basic-setup)
+Start the net-tools according to the [guide](https://docs.zephyrproject.org/latest/connectivity/networking/qemu_setup.html)
 
 - *Terminal 2:*
 
