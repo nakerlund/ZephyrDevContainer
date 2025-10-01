@@ -1,7 +1,7 @@
 {
   "name": "Zephyr Development",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "devcontainer",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "zephyr",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "customizations": {
     "settings": {
